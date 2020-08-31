@@ -3,6 +3,9 @@ const fs = require('fs')
 jest.mock('fs')
 
 describe('db', () => {
+  afterEach(()=>{
+    fs.clearFile()
+  })
   it('read function', async () => {
     // 假数据测试代码
     fs.setReadMock('/xxx', null, JSON.stringify([{'title': 'eat noddle', done: true}]))
